@@ -1,0 +1,32 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+
+      <ion-card>
+        <ion-card-content>
+          <img [src]="DATA_URL_CAMERA" />
+        </ion-card-content>
+    
+        <ion-item>
+          <button ion-button clear item-start (click)="catchPhoto()">Tirar Foto</button>
+        </ion-item>
+      </ion-card>
+
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+

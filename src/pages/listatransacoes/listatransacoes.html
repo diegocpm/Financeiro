@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Transações</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let transacao of transacoes" (click) = "presentActionSheet(transacao)">
+      <h2>{{transacao.descricao}}</h2>
+      <ion-grid>
+          <ion-row>
+            <ion-col col-8>
+              <p style="font-size: 1.0rem;">{{transacao.conta.nome}}</p>
+            </ion-col>
+            <ion-col col-4 style="text-align: right;">
+              <p style="font-size: 1.0rem;">R$ {{((transacao.tipo==1 ? -1 : 1) * transacao.valor).toFixed(2)}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom style="right: 10%; bottom: 5%;">
+    <button ion-fab (click) = "telaCadastro()" color="primary"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

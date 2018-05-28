@@ -1,0 +1,21 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>cadastrocategoria</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="salvarCategoria()">
+
+    <ion-item>
+      <ion-label stacked>Nome da categoria</ion-label>
+      <ion-input [(ngModel)]="nome" name="nome"></ion-input>
+    </ion-item>
+    <br/>
+    <button ion-button block type="submit">Salvar Categoria</button>
+  </form>
+</ion-content>

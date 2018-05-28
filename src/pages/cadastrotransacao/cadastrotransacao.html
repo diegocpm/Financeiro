@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>cadastrotransacao</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="salvarTrancacao()">
+
+    <ion-item>
+        <ion-label>Tipo</ion-label>
+        <ion-select [(ngModel)]="tipo" name="first" interface="popover">
+            <ion-option value="1">Despesa</ion-option>
+            <ion-option value="2">Receita</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Valor</ion-label>
+        <ion-input [(ngModel)]="valor" name="valor" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Descrição</ion-label>
+        <ion-input [(ngModel)]="descricao" name="descricao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Data:</ion-label>
+        <ion-datetime [(ngModel)]="data" name="data" displayFormat="DD/MM/YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Conta</ion-label>
+        <ion-select [(ngModel)]="nomeconta" name="nomeconta" interface="popover" >
+          <ion-option  *ngFor="let conta of contas" [value]="conta.nome"
+          [selected] ="conta.nome == nomeconta"><h2>{{conta.nome}}</h2>
+          </ion-option>
+        </ion-select>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label stacked>Categoria</ion-label>
+        <ion-select [(ngModel)]="nomecategoria" name="nomecategoria" interface="popover" >
+          <ion-option  *ngFor="let categoria of categorias" [value]="categoria.nome" 
+          [selected] ="categoria.nome == nomeconta"><h2>{{categoria.nome}}</h2>
+          </ion-option>
+        </ion-select>
+    </ion-item>
+
+    <br/>
+    <button ion-button block type="submit">Salvar Transação</button>
+  </form>
+</ion-content>

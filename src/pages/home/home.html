@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let conta of contasAgrupadas" (click) = "telatransacao(conta)">
+      <ion-grid>
+          <ion-row>
+            <ion-col col-8>
+                <h2>{{conta.nome}}</h2>
+            </ion-col>
+            <ion-col col-4 style="text-align: right;">
+                <p>R$ {{conta.valor.toFixed(2)}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom style="right: 10%; bottom: 5%;">
+    <button ion-fab (click) = "cadastrotransacao()" color="primary"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>
